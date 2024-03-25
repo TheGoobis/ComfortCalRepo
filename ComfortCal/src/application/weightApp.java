@@ -23,7 +23,7 @@ public class weightApp extends Application{
   
   primaryStage.setScene(DropPage.WelcomeScreen(WelcomeLogin, EnterScene, weightAppScreen));
   weightAppScreen.setTitle("ComfortCal");
-  weightAppScreen.setWidth(350);
+  weightAppScreen.setWidth(450);
   weightAppScreen.setHeight(450);
   weightAppScreen.show();
  }

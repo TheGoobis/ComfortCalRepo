@@ -26,29 +26,20 @@ import javafx.scene.Cursor;
 import java.util.concurrent.TimeUnit;
 
 public class WeightAppStyleSheet{
-   public static void WelcomeLayoutColor(GridPane WelcomePane, VBox WelcomeScreenInfo, HBox UserNameHb, HBox PasswordHb,HBox exitloginButtons,TextField UserNameBox,
-                                 TextField PasswordBox, HBox exitLoginButtons,Button ExitButton, Button NewUserCreatorButton, Button LoginButton){
+   public static void WelcomeLayoutColor(GridPane WelcomePane, VBox WelcomeScreenInfo, HBox exitloginButtons, HBox exitLoginButtons, Button ExitButton, Button LoginButton){
                   
       WelcomePane.setAlignment(Pos.TOP_CENTER);
       WelcomePane.setPadding(new Insets(10,10,0,10)); 
-      WelcomePane.setStyle("-fx-background-color: #FFA07A");
+      WelcomePane.setStyle("-fx-background-image: url('file:src/compWizards.png');"+ "-fx-background-repeat: stretch;" +
+    	        "-fx-background-size: 1000 700;" +
+    	        "-fx-background-position: center center;");
       
       WelcomeScreenInfo.setAlignment(Pos. CENTER);
-      WelcomeScreenInfo.setSpacing(15);
+      WelcomeScreenInfo.setSpacing(30);
       
-      UserNameHb.setSpacing(50);
-      PasswordHb.setSpacing(50);
-      
-      exitloginButtons.setSpacing(200);
+      exitloginButtons.setSpacing(150);
       exitloginButtons.setAlignment(Pos.CENTER);
            
-      //username field sizing
-      UserNameBox.setPrefWidth(250);
-      UserNameBox.setPrefHeight(30);
-      
-      //password field sizing
-      PasswordBox.setPrefWidth(250);
-      PasswordBox.setPrefHeight(30);
       
      System.out.println("buttons for welcome layout has been implemented");
    }

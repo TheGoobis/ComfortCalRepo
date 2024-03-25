@@ -26,7 +26,7 @@ import javafx.scene.Cursor;
 import java.util.concurrent.TimeUnit;
 
 public class WeightAppButtonFunctions{
-    public static void WelcomeLayoutBtnCntrl(Button ExitButton, Button NewUserCreatorButton, Button LoginButton, Scene Scene2,Scene Scene3,Stage weightAppScreen){
+    public static void WelcomeLayoutBtnCntrl(Button ExitButton, Button LoginButton, Scene Scene2,Stage weightAppScreen){
       
       //exits application
       ExitButton.setOnAction(event->{
@@ -35,11 +35,6 @@ public class WeightAppButtonFunctions{
       });
       
       //takes you to scene 2
-      NewUserCreatorButton.setOnAction(event->{
-         
-      });
-      
-      //takes you to scene 3
       LoginButton.setOnAction(event->{
          
       });            
