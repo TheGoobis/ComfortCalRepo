@@ -1,5 +1,6 @@
 package application;
 // style sheet for the whole program
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -54,14 +55,37 @@ public class WeightAppStyleSheet{
    }
    
    public static void CreateAccountColor(){
-     System.out.println("buttons for create account has been implemented");
+     System.out.println("create your acocunt color has been implemented");
    }
    
-   public static void Dashboard(){
-     System.out.println("buttons for dashboard has been implemented");
+   public static void DashboardColor(GridPane DashPane,TextArea DashBoardHistory, HBox Titles,VBox DashboardVB){
+
+	      DashPane.setAlignment(Pos.TOP_CENTER);
+	      DashPane.setPadding(new Insets(10,10,0,10)); 
+	      DashPane.setStyle("-fx-background-color: #FFA07A");
+
+	      Titles.setSpacing(21);
+	      Titles.setAlignment(Pos. CENTER);     
+	       
+	      DashboardVB.setAlignment(Pos. CENTER);
+	      DashboardVB.setSpacing(15);
+	      
+	      DashBoardHistory.setPrefWidth(355);
+	      DashBoardHistory.setPrefHeight(150);
+	      DashBoardHistory.setStyle("-fx-verticle-align: top");
+	      //DashBoardHistory.setResizable(null);
+	      
+	       
+	      DashBoardHistory.setEditable(false);
+	      DashBoardHistory.setBackground(null);      
+	      DashBoardHistory.setText(DashBoardHistory.getText());
+	   System.out.println("color dashboard has been implemented");
    }
    
-   public static void AddFoodItem(){
-     System.out.println("buttons for dashboard has been implemented");
+   public static void AddFoodItemColor(GridPane AddPane){
+	   AddPane.setAlignment(Pos.TOP_CENTER);
+	   AddPane.setPadding(new Insets(10,10,0,10)); 
+	   AddPane.setStyle("-fx-background-color: #FFA07A"); 
+     System.out.println("style for add has been implemented");
    }
 }

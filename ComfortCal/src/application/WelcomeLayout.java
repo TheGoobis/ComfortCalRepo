@@ -1,5 +1,6 @@
 package application;
-// class for the welcome layout
+// this class is for the welcome layout scene1
+
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -34,7 +35,7 @@ public class WelcomeLayout{
     abstract boolean EventHandler();
 
    }  
-   //initilalizing the variables for each section of the welcome page
+   //initilizing the variables for each section of the welcome page
    private Button ExitButton = new Button();
    private Button NewUserCreatorButton = new Button();
    private Button LoginButton = new Button();
@@ -88,7 +89,7 @@ public class WelcomeLayout{
       //call stylesheet class
       StyleSheet.WelcomeLayoutColor(WelcomePane,WelcomeScreenInfo,UserNameHb,PasswordHb,exitLoginButtons,TypeUserName,TypePassword,
                   exitLoginButtons,ExitButton,NewUserCreatorButton,LoginButton);
-      Buttonfunctions.WelcomeLayoutBtnCntrl(ExitButton,NewUserCreatorButton,LoginButton,Scene2,Scene3,weightAppScreen);                 
+      Buttonfunctions.WelcomeLayoutBtnCntrl(ExitButton,NewUserCreatorButton,LoginButton,WelcomePane,Scene2,Scene3,weightAppScreen);                 
       //add to scene
       WelcomeLog = new Scene(WelcomePane);
       return WelcomeLog;
