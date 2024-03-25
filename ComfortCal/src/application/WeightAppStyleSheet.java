@@ -55,4 +55,16 @@ public class WeightAppStyleSheet{
    public static void AddFoodItem(){
      System.out.println("buttons for dashboard has been implemented");
    }
+   
+   public static void UserLayoutColor(GridPane userPane, VBox inputInfo){
+       
+	   userPane.setAlignment(Pos.TOP_CENTER);
+	   userPane.setPadding(new Insets(10,10,0,10)); 
+	   userPane.setStyle("-fx-background-image: url('file:src/compWizards.png');"+ "-fx-background-repeat: stretch;" +
+	    	        "-fx-background-size: 1000 700;" +
+	    	        "-fx-background-position: center center;");
+	   inputInfo.setAlignment(Pos. CENTER);
+	   inputInfo.setSpacing(30);
+	      
+   }
 }

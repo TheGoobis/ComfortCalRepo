@@ -14,6 +14,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 //import javafx.scene.paint.Color;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
@@ -44,6 +45,7 @@ public class WelcomeLayout{
    private Button LoginButton = new Button();
    
    private VBox WelcomeScreenInfo = new VBox();
+   private VBox inputUserInfo = new VBox();
 
    private HBox exitLoginButtons = new HBox();
    
@@ -52,12 +54,6 @@ public class WelcomeLayout{
    
    //what user sees when they initially open the app
    public Scene WelcomeScreen(Scene WelcomeLog, GridPane WelcomePane,Stage weightAppScreen){
-      //call StyleSheet class
-      WeightAppStyleSheet StyleSheet=new WeightAppStyleSheet();
-      WeightAppButtonFunctions Buttonfunctions = new WeightAppButtonFunctions();
-      
-
-      
       Image BannerLogo = new Image("file:src/ComfortCalLogo.png", 180, 180, false, false);
       ImageView ComfortCalLogo=new ImageView(BannerLogo);
 
@@ -77,7 +73,7 @@ public class WelcomeLayout{
       ExitButton.setStyle("-fx-background-color: #CB6FAC; ");
 
       
-      // "Login" is a button that takes you to scene 2.
+      // "Login" is a button that takes you to the user input scene.
       LoginButton = new Button("Login");
       LoginButton.setFont(Font.font("Magneto", FontWeight.BOLD, 25));
       LoginButton.setStyle("-fx-background-color: #CB6FAC; ");
@@ -90,11 +86,38 @@ public class WelcomeLayout{
       WelcomePane.add(WelcomeScreenInfo,0,0); //add VBox to gridpane
       
       //call stylesheet class
-      StyleSheet.WelcomeLayoutColor(WelcomePane,WelcomeScreenInfo, exitLoginButtons,
+      WeightAppStyleSheet.WelcomeLayoutColor(WelcomePane,WelcomeScreenInfo, exitLoginButtons,
                   exitLoginButtons,ExitButton,LoginButton);
-      Buttonfunctions.WelcomeLayoutBtnCntrl(ExitButton,LoginButton,Scene2, weightAppScreen);                 
+      WeightAppButtonFunctions.WelcomeLayoutBtnCntrl(ExitButton,LoginButton,Scene2, weightAppScreen);                 
       //add to scene
       WelcomeLog = new Scene(WelcomePane);
       return WelcomeLog;
    } 
+   
+   //scene after login button is pressed
+   public Scene userInputScene(Scene getUserInput, GridPane userPane,Stage weightAppScreen){
+	   	  //setting up stuff to get inputs from user
+	      Text askUser = new Text("In order to better understand\n your caloric needs, we need to\n" +
+	      				"get some information.");
+	      askUser.setFont(Font.font("Magneto", FontWeight.BOLD, 20));
+	      askUser.setStroke(Color.BLACK);
+	      
+	      Label userHeight = new Label("Height:");
+	      TextField heightField = new TextField ();
+	      HBox heightBox = new HBox();
+	      heightBox.getChildren().addAll(userHeight, heightField);
+	      heightBox.setSpacing(10);
+	      
+	      Label userWeight = new Label("Weight:");
+	      TextField weightField = new TextField ();
+	      HBox weightBox = new HBox();
+	      weightBox.getChildren().addAll(userWeight, weightField);
+	      weightBox.setSpacing(10);
+	      
+	      inputUserInfo = new VBox(askUser,heightBox, weightBox);
+	      userPane.add(inputUserInfo,0,0); //add VBox to gridpane
+	      
+	      getUserInput = new Scene(userPane);
+	      return getUserInput;
+	   }
 }

@@ -62,10 +62,10 @@ public class WeightAppAddPage{
       AddPane.add(AddToLogB,0,3);
       AddPane.add(ReturnToDashB,0,4);
       
-      StyleSheet.AddFoodItemColor(AddPane);
-      Buttonfunctions.AddLayoutBtnCntrl(MTypeChoice, TimeChoice,LogDisplayFood,LogDisplayCal, LogDisplayTime,
-                                       LogDisplayDate,FoodHistoryDisplay,AddToLogB,ReturnToDashB,DataBox,
-                                       AddPane,Scene1,Scene3,WeightAppScreen);
+      //StyleSheet.AddFoodItemColor(AddPane);
+      //Buttonfunctions.AddLayoutBtnCntrl(MTypeChoice, TimeChoice,LogDisplayFood,LogDisplayCal, LogDisplayTime,
+                                       //LogDisplayDate,FoodHistoryDisplay,AddToLogB,ReturnToDashB,DataBox,
+                                       //AddPane,Scene1,Scene3,WeightAppScreen);
      
       Scene4 = new Scene(AddPane);
       return Scene4;

@@ -36,6 +36,7 @@ public class WeightAppButtonFunctions{
       
       //takes you to scene 2
       LoginButton.setOnAction(event->{
+         weightAppScreen.setScene(Scene2);
          
       });            
     }  

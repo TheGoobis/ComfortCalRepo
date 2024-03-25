@@ -27,4 +27,5 @@ public class weightApp extends Application{
   weightAppScreen.setHeight(450);
   weightAppScreen.show();
  }
+
 }

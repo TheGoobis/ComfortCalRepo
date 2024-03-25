@@ -34,7 +34,8 @@ public class HistoryLogDataHandler extends WeightAppAddPage{
                               
       
       System.out.println("History log data handler in use");
-      FoodHistoryDisplay.setText(FoodHistoryDisplay.getText()+"\n "+LogDisplayFood.getText()+"    "+MTypeChoice.getValue()+"     "+LogDisplayCal.getText()+"");
+      FoodHistoryDisplay.setText(FoodHistoryDisplay.getText()+"\n "+LogDisplayFood.getText()+"    "
+      		+ ""+MTypeChoice.getValue()+"     "+LogDisplayCal.getText()+"");
       
       return  FoodHistoryDisplay;
     }

@@ -57,8 +57,8 @@ public class WeightAppDashboard{
       DashPane.add(LogDisplayVBox,0,0);
       DashPane.add(AddVB,0,1);
       
-      StyleSheet.DashboardColor(DashPane,DashBoardHistory,LogDisplayTitlesHBox,LogDisplayVBox);
-      Buttonfunctions.DashboardLayoutBtnCntrl(AddToLogB,LogoutB,LogDisplayVBox,DashPane,HistoryLogAdd,Scene1,Scene4,WeightAppScreen,DashBoardHistory);
+      //StyleSheet.DashboardColor(DashPane,DashBoardHistory,LogDisplayTitlesHBox,LogDisplayVBox);
+      //Buttonfunctions.DashboardLayoutBtnCntrl(AddToLogB,LogoutB,LogDisplayVBox,DashPane,HistoryLogAdd,Scene1,Scene4,WeightAppScreen,DashBoardHistory);
    
       Scene3 = new Scene(DashPane);
       return Scene3;
