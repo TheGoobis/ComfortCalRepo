@@ -48,12 +48,41 @@ public class WeightAppStyleSheet{
      System.out.println("buttons for create account has been implemented");
    }
    
-   public static void Dashboard(){
-     System.out.println("buttons for dashboard has been implemented");
-   }
    
-   public static void AddFoodItem(){
-     System.out.println("buttons for dashboard has been implemented");
+   public static void AddFoodItemColor(GridPane AddPane){
+     System.out.println("buttons for add food has been implemented");
+     
+     AddPane.setAlignment(Pos.TOP_CENTER);
+     AddPane.setPadding(new Insets(10,10,0,10)); 
+     AddPane.setStyle("-fx-background-color: #FFA07A");   
+   }	
+   
+   public static void DashboardColor(GridPane DashPane,TextArea DashBoardHistory, HBox Titles,VBox DashboardVB,
+		   								TextField DailyIntakeVal, TextField CurrentConVal,TextField Remainder,VBox DisplayVBoxOne){
+	      DailyIntakeVal.setEditable(false);;
+	      CurrentConVal.setEditable(false);;
+	      Remainder.setEditable(false);;
+	   
+	      DashPane.setAlignment(Pos.TOP_CENTER);
+	      DashPane.setPadding(new Insets(10,10,0,10)); 
+	      DashPane.setStyle("-fx-background-color: #FFA07A");
+
+	      Titles.setSpacing(21);
+	      Titles.setAlignment(Pos. CENTER);     
+	       
+	      DashboardVB.setAlignment(Pos. CENTER);
+	      DashboardVB.setSpacing(15);
+	      
+	      DashBoardHistory.setPrefWidth(320);
+	      DashBoardHistory.setPrefHeight(150);
+	      DashBoardHistory.setStyle("-fx-verticle-align: top");
+	      //DashBoardHistory.setResizable(null);
+	      
+	       
+	      DashBoardHistory.setEditable(false);
+	      DashBoardHistory.setBackground(null);      
+	      DashBoardHistory.setText(DashBoardHistory.getText());
+	   System.out.println("color dashboard has been implemented");
    }
    
    public static void UserLayoutColor(GridPane userPane, VBox inputInfo){

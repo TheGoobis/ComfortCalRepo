@@ -12,20 +12,20 @@ public class weightApp extends Application{
  }
  //initialize application window
  Stage weightAppScreen;
- Scene WelcomeLogin;
+ //Scene WelcomeLogin;
  
  @Override
  public void start(Stage primaryStage) throws Exception{
-  WelcomeLayout DropPage=new WelcomeLayout();
+	 WelcomeLayout DropPage=new WelcomeLayout();
  
-  weightAppScreen= primaryStage;
-  GridPane EnterScene=new GridPane();
+	 weightAppScreen= primaryStage;
+	 GridPane EnterScene=new GridPane();
   
-  primaryStage.setScene(DropPage.WelcomeScreen(WelcomeLogin, EnterScene, weightAppScreen));
-  weightAppScreen.setTitle("ComfortCal");
-  weightAppScreen.setWidth(450);
-  weightAppScreen.setHeight(450);
-  weightAppScreen.show();
+	primaryStage.setScene(DropPage.WelcomeScreen(EnterScene, weightAppScreen));
+  	weightAppScreen.setTitle("ComfortCal");
+  	weightAppScreen.setWidth(450);
+  	weightAppScreen.setHeight(450);
+  	weightAppScreen.show();
  }
 
 }
