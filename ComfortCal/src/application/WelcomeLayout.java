@@ -4,8 +4,11 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.FontWeight;
@@ -62,7 +65,7 @@ public class WelcomeLayout{
    public Scene WelcomeScreen(GridPane WelcomePane,Stage weightAppScreen){
       Image BannerLogo = new Image("file:src/ComfortCalLogo.png", 180, 180, false, false);
       ImageView ComfortCalLogo=new ImageView(BannerLogo);
-
+      
       //TextPlaceHolder.setAlignment(Pos.BASELINE_CENTER);
       
       // (Banner/logo, greeting, etc.)
@@ -112,28 +115,50 @@ public class WelcomeLayout{
    
    //scene after login button is pressed
    public Scene userInputScene(Scene getUserInput, GridPane userPane,Stage weightAppScreen){
-	      
+	      //white shape to put behind the text for clarity
+	   	  StackPane root = new StackPane();
+		  Rectangle r = new Rectangle(20, 20, 100, 200);
+		  r.setFill(Color.WHITE);
+		  root.getChildren().addAll(r);
+
 	   	  //setting up stuff to get inputs from user
-	      Text askUser = new Text("In order to better understand\n your caloric needs, we need to\n" +
-	      				"get some information.");
-	      askUser.setFont(Font.font("Magneto", FontWeight.BOLD, 20));
-	      askUser.setStroke(Color.BLACK);
+	      Text askUser = new Text("In order to better understand\nyour caloric needs, we need to\n" +
+	      				"get some information.\n\nPlease enter your height and weight.");
+	      askUser.setTextOrigin(VPos.CENTER);
+	      askUser.setFont(Font.font("Ariel", FontWeight.SEMI_BOLD, 20));
 	      
+	      //appearance for the height input
 	      Label userHeight = new Label("Height:");
+	      Label heightMeas = new Label("in meters");
+	      userHeight.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      heightMeas.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 	      TextField heightField = new TextField ();
 	      HBox heightBox = new HBox();
-	      heightBox.getChildren().addAll(userHeight, heightField);
+	      heightBox.getChildren().addAll(userHeight, heightField, heightMeas);
 	      heightBox.setSpacing(10); 
 	      
-	      Text BMIValue = new Text(); //displays BMI
-	      
+	      //appearance for the weight input
 	      Label userWeight = new Label("Weight:");
+	      Label weightMeas = new Label("in kilograms");
+	      userWeight.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      weightMeas.setFont(Font.font("Arial", FontWeight.BOLD, 15));
 	      TextField weightField = new TextField ();
 	      HBox weightBox = new HBox();
-	      weightBox.getChildren().addAll(userWeight, weightField,BMIValue);
+	      weightBox.getChildren().addAll(userWeight, weightField, weightMeas);
 	      weightBox.setSpacing(10);
 	      
-	      inputUserInfo = new VBox(askUser,heightBox, weightBox);
+	      //appearance for the bmi calculations
+	      Text BMIValue = new Text(); //displays BMI
+	      Text BMIDisplay = new Text("Calculated BMI: ");
+	      BMIValue.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      BMIDisplay.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      HBox BMIBox = new HBox();
+	      BMIBox.getChildren().addAll(BMIDisplay, BMIValue);
+	      BMIBox.setSpacing(10);
+	      
+	      //add all of the hboxes to the vbox
+	      inputUserInfo = new VBox(askUser,heightBox, weightBox, BMIBox);
+	      inputUserInfo.setSpacing(20);
 	      userPane.add(inputUserInfo,0,0); //add VBox to gridpane
 	      
 	      //this button should be connected to the program that calculates the bmi
@@ -145,10 +170,11 @@ public class WelcomeLayout{
 		     //called brooke's method
 		     calorieCalculators CCalculator = new calorieCalculators(0, 0, height, weight);
 		     BMIValue.setText(String.valueOf(CCalculator.calculateBMI(height, weight)));
-		     
-		     System.out.println("calculating bmi...\n" +CCalculator.calculateBMI(height, weight)); //tesing (works)
+		     System.out.println("calculating bmi...\n" +CCalculator.calculateBMI(height, weight)); //testing (works)
 		     
 	      });
+	      
+	      BMIValue.setTextOrigin(VPos.CENTER);
 	      
 	      Button Scene3 = new Button("Next");
 	      

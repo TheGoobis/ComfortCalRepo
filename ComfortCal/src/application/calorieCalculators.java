@@ -15,7 +15,7 @@ public class calorieCalculators {
         WEIGHT = currentWeight;
     }
     //Height in meters and weight in kilometers
-    public static double calculateBMI(double height, double weight) {
+    public double calculateBMI(double height, double weight) {
 
         double BMI = ((weight)/(height*height));
         return BMI;
