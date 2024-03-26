@@ -44,17 +44,20 @@ public class WeightAppStyleSheet{
      System.out.println("buttons for welcome layout has been implemented");
    }
    
-   public static void CreateAccountColor(){
+   /* old code, no longer implementing accounts
+		   public static void CreateAccountColor(){
      System.out.println("buttons for create account has been implemented");
-   }
+   }*/
    
    
-   public static void AddFoodItemColor(GridPane AddPane){
+   public void AddFoodItemColor(GridPane AddPane){
      System.out.println("buttons for add food has been implemented");
      
      AddPane.setAlignment(Pos.TOP_CENTER);
      AddPane.setPadding(new Insets(10,10,0,10)); 
-     AddPane.setStyle("-fx-background-color: #FFA07A");   
+     AddPane.setStyle("-fx-background-image: url('file:src/compWizards.png');"+ "-fx-background-repeat: stretch;" +
+ 	        "-fx-background-size: 1000 700;" +
+ 	        "-fx-background-position: center center;");   
    }	
    
    public static void DashboardColor(GridPane DashPane,TextArea DashBoardHistory, HBox Titles,VBox DashboardVB,
@@ -65,7 +68,9 @@ public class WeightAppStyleSheet{
 	   
 	      DashPane.setAlignment(Pos.TOP_CENTER);
 	      DashPane.setPadding(new Insets(10,10,0,10)); 
-	      DashPane.setStyle("-fx-background-color: #FFA07A");
+	      DashPane.setStyle("-fx-background-image: url('file:src/compWizards.png');"+ "-fx-background-repeat: stretch;" +
+	    	        "-fx-background-size: 1000 700;" +
+	    	        "-fx-background-position: center center;");
 
 	      Titles.setSpacing(21);
 	      Titles.setAlignment(Pos. CENTER);     

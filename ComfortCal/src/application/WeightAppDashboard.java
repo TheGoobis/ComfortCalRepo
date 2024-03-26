@@ -3,9 +3,13 @@ package application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 //import javafx.scene.control.Label;
 import javafx.scene.text.Font;
@@ -38,7 +42,7 @@ public class WeightAppDashboard{
       Text DashboardName = new Text("welcome to your Dashboard");
       DashboardName.setFont(Font.font(25));
       
-      //textarea 3 of them
+      //text area 3 of them
       TextField DailyIntakeVal = new TextField();
       DailyIntakeVal.setPrefWidth(50);
       DailyIntakeVal.setPrefHeight(10);
@@ -102,6 +106,8 @@ public class WeightAppDashboard{
       
       //DashBoardHistory = new TextArea();    
       VBox DisplayVBoxOne = new VBox(DashboardName,LargerDisplayHBoxNames, LargerDisplayHBox);
+      DisplayVBoxOne.setBackground(new Background(new BackgroundFill
+    		  (Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
       DisplayVBoxOne.setSpacing(15);
       
       LogDisplayVBox = new VBox(DashBoardHistory);

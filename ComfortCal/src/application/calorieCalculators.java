@@ -2,17 +2,19 @@ package application;
 
 public class calorieCalculators {
 	//Variables for account
-    private static int MAX_CALORIES_FOR_THE_DAY = 1500;
+    private static int MAX_CALORIES_FOR_THE_DAY = 0;
     private static int CURRENT_CALORIES = 0;
     private static double HEIGHT = 0;
     private static double WEIGHT = 0;
+    private static double age = 0;
+    private static String  sex = "";
     
-    //Regular account
-    public calorieCalculators(int maxCal, int currentCal, double currentHeight, double currentWeight) {
-        MAX_CALORIES_FOR_THE_DAY = maxCal;
-        CURRENT_CALORIES = currentCal;
-        HEIGHT = currentHeight;
-        WEIGHT = currentWeight;
+    //Regular account constructor
+    public calorieCalculators(double currentHeight, double currentWeight, double currentAge, String currentSex) {   	
+        setHEIGHT(currentHeight);
+        setWEIGHT(currentWeight);
+        setAge(currentAge);
+        setSex(currentSex);
     }
     //Height in meters and weight in kilometers
     public double calculateBMI(double height, double weight) {
@@ -20,23 +22,72 @@ public class calorieCalculators {
         double BMI = ((weight)/(height*height));
         return BMI;
     }
+    
+    public double calcMaxCal(double height, double weight, double age, String sex) {
+    	double maxCal = 0.0;
+    	
+    	//BMR is your basal metabolic rate
+    	//used to calculate how many calories you need to eat per day
+    	if(sex.equals("F")) {
+    		double BMRVal = 447.593 + (9.247 * weight) + (3.098 * (height*100)) - (5.677 * age);
+    		maxCal = BMRVal * 1.55;
+    	}else { //sex is male, only other choice, so no need for else if
+    		double BMRVal = 88.362  + (13.397 * weight) + (4.799 * (height*100)) - (4.330 * age);
+    		maxCal = BMRVal * 1.55;
+    	}
+    	
+    	/*usually you multiply your BMR by different values based on how active you are,
+    		but due to time constraints, we will simply take the average of those values and
+    		use that instead*/
+    	
+    	//testing calculations
+    	System.out.println("Max calories per day: " + maxCal);
+    	//return max calories you can eat per day
+    	return maxCal;
+    }
 
     //Updating Calories Each Meal
-    public static void updateCalories(int consumedCalories) {
+    public double updateCalories(int consumedCalories) {
         CURRENT_CALORIES += consumedCalories;
         if (CURRENT_CALORIES < MAX_CALORIES_FOR_THE_DAY) {
             System.out.println("You have " + (MAX_CALORIES_FOR_THE_DAY-CURRENT_CALORIES) +  " calories remaining for the day.");
-            //return CURRENT_CALORIES
+            return CURRENT_CALORIES;
         }
         else if (CURRENT_CALORIES == MAX_CALORIES_FOR_THE_DAY) {
             System.out.println("Ok, you've reached your max calories for the day. No more.");
-            //return CURRENT_CALORIES
+            return CURRENT_CALORIES;
         }
         else {
             System.out.println("You've surpassed your daily calorie limit by " + (CURRENT_CALORIES-MAX_CALORIES_FOR_THE_DAY) + ". Stop.");
-            //return -1
+            return -1;
         }
     }
+    
+    //getters and setters
+	public static double getWEIGHT() {
+		return WEIGHT;
+	}
+	public static void setWEIGHT(double wEIGHT) {
+		WEIGHT = wEIGHT;
+	}
+	public static double getHEIGHT() {
+		return HEIGHT;
+	}
+	public static void setHEIGHT(double hEIGHT) {
+		HEIGHT = hEIGHT;
+	}
+	public static double getAge() {
+		return age;
+	}
+	public static void setAge(double userAge) {
+		age = userAge;
+	}
+	public static String getSex() {
+		return sex;
+	}
+	public static void setSex(String userSex) {
+		sex = userSex;
+	}
     
     //Testing
 /*   public static void main(String[] args) {

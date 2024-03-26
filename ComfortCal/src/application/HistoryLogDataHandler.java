@@ -41,11 +41,11 @@ public class HistoryLogDataHandler extends WeightAppAddPage{
       
       //turn into integers
       
-      Integer.valueOf(GoalCaloryCounter.getText()); //the set calorie intake goal
-      Integer.valueOf(CurrentCalCounter.getText()); //how many the user curent has consumed
+      Integer.valueOf(GoalCaloryCounter.getText()); //the set calorie in-take goal
+      Integer.valueOf(CurrentCalCounter.getText()); //how many the user current has consumed
       Integer.valueOf(RemainingCalCounter.getText()); //remaining calories
       
-      calorieCalculators CCalculator = new calorieCalculators(0, 0, 0, 0);
+      calorieCalculators CCalculator = new calorieCalculators(0, 0, 0, "");
       
       
       CCalculator.updateCalories(Integer.valueOf(CurrentCalCounter.getText()));

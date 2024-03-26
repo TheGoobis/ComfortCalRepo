@@ -10,6 +10,9 @@ import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.FontWeight;
 //import javafx.scene.control.Label;
@@ -115,12 +118,6 @@ public class WelcomeLayout{
    
    //scene after login button is pressed
    public Scene userInputScene(Scene getUserInput, GridPane userPane,Stage weightAppScreen){
-	      //white shape to put behind the text for clarity
-	   	  StackPane root = new StackPane();
-		  Rectangle r = new Rectangle(20, 20, 100, 200);
-		  r.setFill(Color.WHITE);
-		  root.getChildren().addAll(r);
-
 	   	  //setting up stuff to get inputs from user
 	      Text askUser = new Text("In order to better understand\nyour caloric needs, we need to\n" +
 	      				"get some information.\n\nPlease enter your height and weight.");
@@ -147,6 +144,23 @@ public class WelcomeLayout{
 	      weightBox.getChildren().addAll(userWeight, weightField, weightMeas);
 	      weightBox.setSpacing(10);
 	      
+	     //appearance for the age input
+	      Label userAge = new Label("Age:");
+	      userAge.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      TextField ageField = new TextField ();
+	      HBox ageBox = new HBox();
+	      ageBox.getChildren().addAll(userAge, ageField);
+	      ageBox.setSpacing(10);
+	      
+	      //get person's sex for calculating with BMR equation to use
+	      ComboBox<String> sexChoice = new ComboBox<>();//f or m
+	      Label userSex = new Label("Sex: ");
+	      userSex.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      sexChoice.getItems().addAll("F","M");
+	      HBox sexBox = new HBox();
+	      sexBox.getChildren().addAll(userSex, sexChoice);
+	      sexBox.setSpacing(10);
+	      
 	      //appearance for the bmi calculations
 	      Text BMIValue = new Text(); //displays BMI
 	      Text BMIDisplay = new Text("Calculated BMI: ");
@@ -156,8 +170,19 @@ public class WelcomeLayout{
 	      BMIBox.getChildren().addAll(BMIDisplay, BMIValue);
 	      BMIBox.setSpacing(10);
 	      
+	      //for displaying for calculated max calories per day
+	      Text maxCal = new Text(); //displays BMI
+	      Text maxCalDisplay = new Text("Your daily caloric allowance: ");
+	      maxCal.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      maxCalDisplay.setFont(Font.font("Arial", FontWeight.BOLD, 15));
+	      HBox maxCalBox = new HBox();
+	      maxCalBox.getChildren().addAll(maxCalDisplay, maxCal);
+	      maxCalBox.setSpacing(10);
+	      
 	      //add all of the hboxes to the vbox
-	      inputUserInfo = new VBox(askUser,heightBox, weightBox, BMIBox);
+	      inputUserInfo = new VBox(askUser,heightBox, weightBox, ageBox, sexBox, BMIBox, maxCalBox);
+	      inputUserInfo.setBackground(new Background(new BackgroundFill
+	    		  (Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 	      inputUserInfo.setSpacing(20);
 	      userPane.add(inputUserInfo,0,0); //add VBox to gridpane
 	      
@@ -166,11 +191,17 @@ public class WelcomeLayout{
 	      Calculate.setOnAction(event->{
 		     double height = Double.parseDouble(heightField.getText());
 		     double weight = Double.parseDouble(weightField.getText());	  
+		     double age = Double.parseDouble(ageField.getText());
+		     String sex = sexChoice.getSelectionModel().getSelectedItem();
 		     
 		     //called brooke's method
-		     calorieCalculators CCalculator = new calorieCalculators(0, 0, height, weight);
-		     BMIValue.setText(String.valueOf(CCalculator.calculateBMI(height, weight)));
+		     calorieCalculators CCalculator = new calorieCalculators(height, weight, age, sex);
+		     BMIValue.setText(String.format("%.2f", CCalculator.calculateBMI(height, weight)));
 		     System.out.println("calculating bmi...\n" +CCalculator.calculateBMI(height, weight)); //testing (works)
+		     
+		     //call max calorie method
+		     maxCal.setText(String.format("%.2f", CCalculator.calcMaxCal(height, weight, age, sex)));
+		     System.out.println("calculating max calories...\n" +CCalculator.calcMaxCal(height, weight, age, sex)); //testing (works)
 		     
 	      });
 	      
@@ -179,6 +210,7 @@ public class WelcomeLayout{
 	      Button Scene3 = new Button("Next");
 	      
 	      VBox Buttons= new VBox(Calculate,Scene3);
+	      Buttons.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY)));
 	      userPane.add(Buttons, 0, 1);
 	      
 	      Scene3.setOnAction(event->{

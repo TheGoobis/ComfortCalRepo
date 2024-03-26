@@ -33,7 +33,6 @@ public class WeightAppAddPage{
     Scene Scene3;
     public Scene AddToHistory(Scene Scene4, GridPane AddPane, TextArea FoodHistoryDisplay,Stage WeightAppScreen, VBox HistoryLogVB, TextField GoalCaloryCounter, TextField CurrentCalCounter, TextField RemainingCalCounter){
       WeightAppStyleSheet StyleSheet = new WeightAppStyleSheet();
-      WeightAppButtonFunctions Buttonfunctions = new WeightAppButtonFunctions();
       
       Text AddName = new Text("Add food items");
       AddName.setFont(Font.font(25));
@@ -79,7 +78,7 @@ public class WeightAppAddPage{
       StyleSheet.AddFoodItemColor(AddPane);
       WeightAppButtonFunctions.AddLayoutBtnCntrl(MTypeChoice, TimeChoice,LogDisplayFood,LogDisplayCal, LogDisplayTime,
                                        LogDisplayDate,FoodHistoryDisplay,AddToLogB,ReturnToDashB,DataBox,
-                                       AddPane,Scene1,Scene3,WeightAppScreen,GoalCaloryCounter,CurrentCalCounter,RemainingCalCounter );
+                                       AddPane,Scene1,Scene3,WeightAppScreen,GoalCaloryCounter,CurrentCalCounter,RemainingCalCounter);
      
       Scene4 = new Scene(AddPane);
       return Scene4;
