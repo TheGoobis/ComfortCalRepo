@@ -94,7 +94,7 @@ public class WeightAppButtonFunctions{
     			//Scene4Pane.add(HistoryLog,0,0);
 
     			WeightAppAddPage AddDrop=new WeightAppAddPage();
-    			weightAppScreen.setScene(AddDrop.AddToHistory(Scene4,Scene4Pane,DashBoardHistory,weightAppScreen, HistoryLog,DailyIntakeVal, CurrentConVal,remainder));
+    			weightAppScreen.setScene(AddDrop.AddToHistory(Scene4,Scene4Pane,DashBoardHistory,weightAppScreen, HistoryLog,DailyIntakeVal, CurrentConVal, remainder));
     		}); 
     		
     	    LogoutButton.setOnAction(event->{
@@ -123,13 +123,18 @@ public class WeightAppButtonFunctions{
     	});  
 
     	returnButton.setOnAction(event->{
+    	
+    		
     		Scene4Gridpane.getChildren().removeAll();  
-
+    		
+    		Text Temporary1 = new Text();
+    		double Temporary2 = 0;
+    		
     		WeightAppDashboard DashDrop=new WeightAppDashboard();
     		WelcomeLayout WelcomeAppScreen= new WelcomeLayout();
     		GridPane DashPane = new GridPane();
                        
-    		weightAppScreen.setScene(DashDrop.DashBoard(Scene3,DashPane,weightAppScreen,FoodHistoryDisplay)); 
+    		weightAppScreen.setScene(DashDrop.DashBoard(Scene3,DashPane,weightAppScreen,FoodHistoryDisplay, Temporary1, Temporary2)); 
     	});   
     } 
 }

@@ -30,11 +30,12 @@ public class WeightAppDashboard{
    private VBox LogDisplayVBox = new VBox();
    private HBox LargerDisplayHBox = new HBox();
    private WelcomeLayout WelcomeScene1=new WelcomeLayout();
+   private TextField UserInput = new TextField();
    //private DashBoard DashScene3=new DashBoard();
    
    Scene Scene3;
    Scene Scene4;
-   public Scene DashBoard(Scene Scene1, GridPane DashPane, Stage WeightAppScreen, TextArea DashBoardHistory){
+   public Scene DashBoard(Scene Scene1, GridPane DashPane, Stage WeightAppScreen, TextArea DashBoardHistory, Text BMIValue,Double maxCal){
       WeightAppStyleSheet StyleSheet=new WeightAppStyleSheet();
       WeightAppButtonFunctions Buttonfunctions = new WeightAppButtonFunctions();
       
@@ -42,16 +43,18 @@ public class WeightAppDashboard{
       Text DashboardName = new Text("welcome to your Dashboard");
       DashboardName.setFont(Font.font(25));
       
+      //DashPane.setGridLinesVisible(true);
+      
       //text area 3 of them
       TextField DailyIntakeVal = new TextField();
       DailyIntakeVal.setPrefWidth(50);
       DailyIntakeVal.setPrefHeight(10);
       DailyIntakeVal.setEditable(false);
       DailyIntakeVal.setBackground(null);
-      DailyIntakeVal.setFont(Font.font(25));
+      DailyIntakeVal.setFont(Font.font(15));
       
       //set as user input value from previous scene
-      DailyIntakeVal.setText("0");
+      DailyIntakeVal.setText(maxCal.toString());
       DailyIntakeVal.setAlignment(Pos.CENTER); 
       
       TextField CurrentConVal = new TextField();
@@ -59,21 +62,28 @@ public class WeightAppDashboard{
       CurrentConVal.setPrefHeight(10);
       CurrentConVal.setEditable(false);
       CurrentConVal.setBackground(null);
-      CurrentConVal.setFont(Font.font(25));
+      CurrentConVal.setFont(Font.font(15));
       
       //set as user input value from previous scene
-      CurrentConVal.setText("0");
-      CurrentConVal.setAlignment(Pos.CENTER);  
+      
+ 
       
       TextField Remainder = new TextField();
       Remainder.setPrefWidth(50);
       Remainder.setPrefHeight(10);
       Remainder.setEditable(false);
       Remainder.setBackground(null);
-      Remainder.setFont(Font.font(25));
+      Remainder.setFont(Font.font(15));
+      
+      int UserInput = 0;
+      //Double CurrentNumbers = maxCal-UserInput; //here
+      
+      //Double RemainderVal = maxCal-CurrentNumbers;
+      CurrentConVal.setText(String.valueOf(UserInput));
+      CurrentConVal.setAlignment(Pos.CENTER); 
       
       //set as user input value from previous scene
-      Remainder.setText("0");
+      Remainder.setText(maxCal.toString());
       Remainder.setAlignment(Pos.CENTER);     
       
       Text intakeGoal = new Text("Set Goal" ); 
@@ -124,7 +134,7 @@ public class WeightAppDashboard{
       HistoryLogAdd.add(LogDisplayVBox,0,0);
       
       DashPane.add(DisplayVBoxOne, 0, 0);
-      DashPane.add(LogDisplayTitlesHBox,0,1);
+      DashPane.add(LogDisplayTitlesHBox,0,1);                 
       DashPane.add(LogDisplayVBox,0,2);
       DashPane.add(AddVB,0,3);
       

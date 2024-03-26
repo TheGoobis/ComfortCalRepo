@@ -74,7 +74,8 @@ public class WeightAppStyleSheet{
 	      DashPane.setStyle("-fx-background-image: url('file:src/compWizards.png');"+ "-fx-background-repeat: stretch;" +
 	    	        "-fx-background-size: 1000 700;" +
 	    	        "-fx-background-position: center center;");
-
+	      
+	      //CurrentConVal.setPrefWidth(40);
 	      Titles.setSpacing(21);
 	      Titles.setAlignment(Pos. CENTER);     
 	       

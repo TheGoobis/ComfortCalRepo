@@ -205,6 +205,7 @@ public class WelcomeLayout{
 		     maxCal.setText(String.format("%.2f", maxCalVal));
 		     System.out.println("calculating max calories...\n" + maxCalVal); //testing (works)
 		     
+		     
 	      });
 	      
 	      BMIValue.setTextOrigin(VPos.CENTER);
@@ -218,13 +219,12 @@ public class WelcomeLayout{
 	      Scene3.setOnAction(event->{
 	        userPane.getChildren().removeAll();
 	        //double.parseDouble(heightField.getText());
-
 	        
 	        
          	GridPane DashPane = new GridPane();
          
          	WeightAppDashboard DashDrop=new WeightAppDashboard();
-         	weightAppScreen.setScene(DashDrop.DashBoard(getUserInput,DashPane,weightAppScreen, TextPlaceHolder));
+         	weightAppScreen.setScene(DashDrop.DashBoard(getUserInput,DashPane,weightAppScreen, TextPlaceHolder,BMIValue,maxCalVal));
          	
          	
 	        });
