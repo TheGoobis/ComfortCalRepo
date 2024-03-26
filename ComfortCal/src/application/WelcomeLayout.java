@@ -56,6 +56,7 @@ public class WelcomeLayout{
    private VBox inputUserInfo = new VBox();
 
    private HBox exitLoginButtons = new HBox();
+   public double maxCalVal = 0.0;
    
    Scene AppDisplay;
    Scene Scene2;
@@ -200,8 +201,9 @@ public class WelcomeLayout{
 		     System.out.println("calculating bmi...\n" +CCalculator.calculateBMI(height, weight)); //testing (works)
 		     
 		     //call max calorie method
-		     maxCal.setText(String.format("%.2f", CCalculator.calcMaxCal(height, weight, age, sex)));
-		     System.out.println("calculating max calories...\n" +CCalculator.calcMaxCal(height, weight, age, sex)); //testing (works)
+		     maxCalVal = CCalculator.calcMaxCal(height, weight, age, sex);
+		     maxCal.setText(String.format("%.2f", maxCalVal));
+		     System.out.println("calculating max calories...\n" + maxCalVal); //testing (works)
 		     
 	      });
 	      

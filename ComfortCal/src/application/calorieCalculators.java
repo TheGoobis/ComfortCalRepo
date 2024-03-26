@@ -2,8 +2,8 @@ package application;
 
 public class calorieCalculators {
 	//Variables for account
-    private static int MAX_CALORIES_FOR_THE_DAY = 0;
-    private static int CURRENT_CALORIES = 0;
+    private static double maxCal = 0;
+    private static double CURRENT_CALORIES = 0;
     private static double HEIGHT = 0;
     private static double WEIGHT = 0;
     private static double age = 0;
@@ -24,7 +24,7 @@ public class calorieCalculators {
     }
     
     public double calcMaxCal(double height, double weight, double age, String sex) {
-    	double maxCal = 0.0;
+    	maxCal = 0.0;
     	
     	//BMR is your basal metabolic rate
     	//used to calculate how many calories you need to eat per day
@@ -47,18 +47,18 @@ public class calorieCalculators {
     }
 
     //Updating Calories Each Meal
-    public double updateCalories(int consumedCalories) {
+    public double updateCalories(double consumedCalories) {
         CURRENT_CALORIES += consumedCalories;
-        if (CURRENT_CALORIES < MAX_CALORIES_FOR_THE_DAY) {
-            System.out.println("You have " + (MAX_CALORIES_FOR_THE_DAY-CURRENT_CALORIES) +  " calories remaining for the day.");
+        if (CURRENT_CALORIES < maxCal) {
+            System.out.println("You have " + (maxCal-CURRENT_CALORIES) +  " calories remaining for the day.");
             return CURRENT_CALORIES;
         }
-        else if (CURRENT_CALORIES == MAX_CALORIES_FOR_THE_DAY) {
+        else if (CURRENT_CALORIES == maxCal) {
             System.out.println("Ok, you've reached your max calories for the day. No more.");
             return CURRENT_CALORIES;
         }
         else {
-            System.out.println("You've surpassed your daily calorie limit by " + (CURRENT_CALORIES-MAX_CALORIES_FOR_THE_DAY) + ". Stop.");
+            System.out.println("You've surpassed your daily calorie limit by " + (CURRENT_CALORIES-maxCal) + ". Stop.");
             return -1;
         }
     }

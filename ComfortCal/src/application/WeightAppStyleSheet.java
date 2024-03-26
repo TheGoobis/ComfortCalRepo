@@ -63,8 +63,11 @@ public class WeightAppStyleSheet{
    public static void DashboardColor(GridPane DashPane,TextArea DashBoardHistory, HBox Titles,VBox DashboardVB,
 		   								TextField DailyIntakeVal, TextField CurrentConVal,TextField Remainder,VBox DisplayVBoxOne){
 	      DailyIntakeVal.setEditable(false);;
+	      DailyIntakeVal.setText(DailyIntakeVal.getText());
 	      CurrentConVal.setEditable(false);;
+	      CurrentConVal.setText(CurrentConVal.getText());
 	      Remainder.setEditable(false);;
+	      Remainder.setText(Remainder.getText());
 	   
 	      DashPane.setAlignment(Pos.TOP_CENTER);
 	      DashPane.setPadding(new Insets(10,10,0,10)); 
